@@ -33,6 +33,12 @@ case "${APM_AGENT_TYPE:-none}" in
         ;;
 esac
 
+export OTEL_EXPORTER_OTLP_ENDPOINT=https://a5f902e40963480292686d47af76ba4a.apm.us-west-2.aws.cloud.es.io:443
+export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer rWNpu0sXwsIlBXWavq"
+export OTEL_METRICS_EXPORTER=otlp
+export OTEL_LOGS_EXPORTER=otlp
+export OTEL_RESOURCE_ATTRIBUTES=service.name=java,deployment.environment=production
+
 java \
     ${JAVA_AGENT} \
     ${APP_OPTS} \
